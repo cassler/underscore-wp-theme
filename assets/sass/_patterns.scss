@@ -1,0 +1,222 @@
+/*---------------------------------------------------------
+ 5. Patterns (_patterns.scss)
+-------------------------------------------------------- */
+img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+	&.wp-smiley {
+		margin: 0;
+		padding: 0; //reset
+		background: 0; //reset
+		@include box-shadow(none); //reset
+	}
+	&.size-full,
+	&.size-large,
+	&.wp-post-image {
+		height: auto;
+	}
+	&[class*="align"],
+	&[class*="wp-image-"],
+	&[class*="attachment-"] {
+		height: auto;
+	}
+	&.alignleft,
+	&.alignright,
+	&.aligncenter {
+		@include rem('margin-bottom', $base);
+	}
+}
+/*---------------------------------------------------------
+ Captions (_patterns.scss)
+-------------------------------------------------------- */
+div.wp-caption {
+	max-width: 100%;
+	img {
+		@include rem('margin-bottom', $base/4);
+	}
+}
+.wp-caption-text,
+dd.wp-caption-dd {
+	@extend .small-sans;
+	@include rem('margin-top', $base/2);
+}
+/*---------------------------------------------------------
+ Media (_patterns.scss)
+-------------------------------------------------------- */
+embed,
+object,
+video,
+iframe {
+	max-width: 100%;
+}
+/*---------------------------------------------------------
+ Twitter (_patterns.scss)
+-------------------------------------------------------- */
+.twitter-tweet-rendered {
+	display: inline;
+	max-width: 100%;
+}
+/*---------------------------------------------------------
+ General (_patterns.scss)
+-------------------------------------------------------- */
+.clear {
+	clear: both;
+}
+.alignleft {
+	float: left;
+}
+.alignright {
+	float: right;
+}
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.hide {
+	display: none;
+	visibility: hidden;
+}
+.hidden {
+	visibility: hidden;
+}
+.noborder {
+	border: none;
+}
+div {
+	.alignleft {
+		text-align: left;
+		@include rem('margin-right', $base);
+	}
+	.alignright {
+		text-align: right;
+		@include rem('margin-left', $base);
+	}
+	.aligncenter {
+		text-align: center;
+	}
+}
+/*---------------------------------------------------------
+ Site title (_patterns.scss)
+-------------------------------------------------------- */
+.site-title {
+	color: $b;
+	font-family: $script;
+	font-weight: 400;
+	line-height: 1.2;
+	-webkit-font-smoothing: antialiased;
+	@include rem('font-size', 38px);
+	@extend .text-shadow;
+	&:after {
+		content: "\002E";
+		color: $d;
+	}
+}
+/*---------------------------------------------------------
+ Custom logo (_patterns.scss)
+-------------------------------------------------------- */
+.custom-logo {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-position: center center;
+	@include rem('margin-bottom', $base/2);
+}
+/*---------------------------------------------------------
+ Frame (_patterns.scss)
+-------------------------------------------------------- */
+.image-frame {
+	margin-bottom: 0; //reset
+}
+.theme-shadow {
+	display: inline-block;
+	@extend .image-highlight;
+}
+/*---------------------------------------------------------
+ Stitching (_patterns.scss)
+-------------------------------------------------------- */
+.stitching-wrapper {
+	@include for(small-screens) {
+		@include rem('padding', 7px);
+	}
+	@include rem('padding', 5px);
+	@include box-shadow;
+	@extend .box-size;
+}
+.stitching-content {
+	border: 1px dashed rgba(255, 255, 255, .4);
+	@include rem('padding', $gut);
+	@extend .box-size;
+}
+/*---------------------------------------------------------
+ Avatar (_patterns.scss)
+-------------------------------------------------------- */
+.collections-avatar-wrapper {
+	display: inline-block;
+	float: left;
+	border: 1px solid darken($l,4);
+	@include rem('padding', 3px);
+	@include border-radius(50%);
+	.avatar,
+	.attachment-thumbnail {
+		@include for(medium-screens) {
+			width: 45px;
+		}
+		width: 40px;
+		@include border-radius(50%);
+	}
+}
+/*---------------------------------------------------------
+ Faux Links (_patterns.scss)
+-------------------------------------------------------- */
+.faux-link {
+	cursor: pointer;
+}
+/*---------------------------------------------------------
+ Loading Indicator (_patterns.scss)
+-------------------------------------------------------- */
+@-webkit-keyframes loader {
+	0%  {
+    	-webkit-transform: rotate(0deg);
+	}
+	100% {
+		-webkit-transform: rotate(360deg);
+	}
+}
+@-moz-keyframes loader {
+	0%  {
+    	-moz-transform: rotate(0deg);
+	}
+	100% {
+		-moz-transform: rotate(360deg);
+	}
+}
+@-o-keyframes loader {
+	0%  {
+    	-o-transform: rotate(0deg);
+	}
+	100% {
+		-o-transform: rotate(360deg);
+	}
+}
+@keyframes loader {
+	0%  {
+    	transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.cspa-spinner {
+	position: relative;
+	margin: 10% auto 0;
+	width: 41px;
+	height: 36px;
+	display: none;
+	-webkit-animation: loader 1.4s infinite linear;
+	-moz-animation: loader 1.4s infinite linear;
+	-o-animation: loader 1.4s infinite linear;
+	animation: loader 1.4s infinite linear;
+}

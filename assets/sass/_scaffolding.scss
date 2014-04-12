@@ -1,0 +1,141 @@
+/*---------------------------------------------------------
+ 3. Scaffolding (_scaffolding.scss)
+-------------------------------------------------------- */
+html {
+	@include for(small-screens) {
+		font-size: 100%; //16px
+	}
+	font-size: 93.75%; //15px
+}
+body {
+	color: $c;
+	font-family: $serif;
+	line-height: $line;
+	text-rendering: optimizeLegibility;
+	background: $a url(images/bg.jpg);
+}
+a {
+	text-decoration: none; //reset
+	color: inherit;
+}
+/*---------------------------------------------------------
+ Content (_scaffolding.scss)
+-------------------------------------------------------- */
+.container {
+	max-width: $width;
+	margin: 0 auto;
+	@include rem('padding', $base*2 $base $base);
+	@extend .clear;
+}
+.main-content {
+	@include for(medium-screens) {
+		float: right;
+		width: percentage(($col*7+$gut*7)/$width); //$width
+	}
+}
+/*---------------------------------------------------------
+ Base (_scaffolding.scss)
+-------------------------------------------------------- */
+ul,ol,dl,p,details,address,.vcard,figure,pre,fieldset,table,dt,dd,hr {
+	@include rem('margin-bottom', $base);
+}
+p,ul,ol,dl,blockquote {
+	@extend .break;
+}
+pre,
+code,
+input,
+textarea {
+	font: inherit;
+}
+/*---------------------------------------------------------
+ Footer (_scaffolding.scss)
+-------------------------------------------------------- */
+#footer {
+	@include for(medium-screens) {
+		text-align: left;
+	}
+	float: left;
+	width: 100%;
+	text-align: center;
+	@include rem('margin-top', $base*4);
+	@extend .small-sans;
+	color: darken($l,8);
+	p {
+		@include rem('margin-bottom', $base/2);
+	}
+	a {
+		color: $l;
+	}
+}
+#theme-byline,
+#footer-text {
+	@include for(medium-screens) {
+		float: left;
+		width: 50%;
+		margin-top: 0; //reset
+	}
+	clear: both;
+}
+/*---------------------------------------------------------
+ Social icons (_scaffolding.scss)
+-------------------------------------------------------- */
+#social {
+	@include for(medium-screens) {
+		float: right;
+		width: 50%;
+		margin-top: 0; //reset
+		text-align: right;
+		@include rem('margin-right', -4px);
+	}
+}
+.icons li {
+	@include for(medium-screens) {
+		@include rem('margin-left', -2px);
+	}
+	display: inline;
+	@include rem('margin-left', 3px);
+	&:first-child {
+		margin-left: 0px; //reset
+	}
+	a {
+		@include for(medium-screens) {
+			width: 25px;
+			height: 25px;
+			background-size: 19px;
+		}
+		display: inline-block;
+		width: 30px;
+		height: 30px;
+		background-position: center center;
+		background-repeat: no-repeat;
+		@include transition;
+		&:hover {
+			@include for(medium-screens) {
+				background-size: 25px;
+			}
+			background-size: 30px;
+		}
+	}
+	.twitter {
+		background-image: url(images/twitter.svg);
+	}
+	.facebook {
+		background-image: url(images/facebook.svg);
+	}
+	.google {
+		background-image: url(images/google.svg);
+	}
+	.flickr {
+		background-image: url(images/flickr.svg);
+	}
+	.pinterest {
+		background-image: url(images/pinterest.svg);
+	}
+	.linkedin {
+		background-image: url(images/linkedin.svg);
+	}
+	.rss {
+		background-image: url(images/rss.svg);
+	}
+}

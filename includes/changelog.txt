@@ -1,0 +1,75 @@
+== 1.1.5 ==
+
+* Updated FitVids.js to 1.1
+* Updated theme screenshot to larger size
+
+== 1.1.4 ==
+
+* Fixed typo in format.php (h/t @mauryaratan)
+* Fixed undefined function error when SPA is not enabled
+* Updated image grabber to address edge cases
+* Updated link to The Theme Foundry in the footer
+
+== 1.1.3 ==
+
+* Fixed issue with broken SVG assets on homepage in IE11
+
+== 1.1.2 ==
+
+* Fixed regression in homepage links from the 1.1.1 release
+
+== 1.1.1 ==
+
+* Fixed broken links in IE10 on homepage
+
+== 1.1 ==
+
+* Added placeholders for missing gallery cover images or featured images in the photos archive
+* Added loading indicator that begins if request for page takes longer than 1 second
+* Added ability for translators to turn off fonts
+* Added support for Jetpack gallery options
+* Improved video frame compatibility with all WordPress supported video providers
+* Improved functioning of theme when SPA is disabled
+* Improved comment styling, especially for Jetpack's Highlander comments
+* Improved styling of Load More button
+* Improved algorithm for displaying number of video posts
+* Improved escaping of some strings
+* Improved image content grabber
+* Fixed translation issues
+* Fixed content width issue on pages
+
+== 1.0.6 ==
+
+* Fixed issue with stream view icons not showing in IE10
+* Fixed issue with broken pagination links in IE10
+* Added ability to show galleries as a grid instead of a slideshow
+
+== 1.0.5 ==
+
+* Fix issue in which gallery slideshows were not responsive in Firefox.
+
+== 1.0.4 ==
+
+* Fix issue in which links to the article or photo archive are broken.
+
+== 1.0.3 ==
+
+* Change underscore template tags to "{{ }}" to avoid issue with ASP flags on some servers.
+
+== 1.0.2 ==
+
+* Fix regression in Load More button on stream view when a posts page is set.
+
+== 1.0.1 ==
+
+* Improve handling of the "Load More" link on index pages, especially when the Single Page Application is not active.
+* Add a styling to in content "<a>" tags.
+* Use "get_template_directory_uri()" for scripts instead of "get_stylesheet_directory_uri()" for better handling of child themes.
+* Fixed issues where the "Articles" button does not show when there are no asides.
+* Added better caching for the index page navigation.
+* Added support for VideoPress videos.
+* Improved method for handling query variables.
+
+== 1.0 ==
+
+* Initial release

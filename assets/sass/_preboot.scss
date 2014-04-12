@@ -1,0 +1,196 @@
+// _preboot.scss
+// Variables and mixins
+
+// Variables
+// --------------------------------------------------
+
+//Descriptive colors
+$bg-dark:					#3a3f41;
+$bg-light:					#f9f9f3;
+$detail-lightgrayishblue:	#a8acae;
+$detail-darkblue:			#2c3133;
+$standard-red:				#db5640;
+$link-green:				#87b44e;
+$photo-blue:				#5e7ba7;
+$video-blue:				#65b3b9;
+$audio-yellow:				#e6bc3c;
+$quote-brown:				#786d5d;
+$detail-darkgrayishblue:	#42484b;
+$detail-grayishblue: 		#727678;
+
+//Functional colors
+$a:						$bg-dark;
+$b:						$bg-light;
+$c:						$detail-lightgrayishblue;
+$d:						$standard-red;
+$e:						$link-green;
+$f:						$photo-blue;
+$g:						$video-blue;
+$h:						$audio-yellow;
+$i:						$quote-brown;
+$j:						$detail-darkgrayishblue;
+$k:						$detail-darkblue;
+$l:						$detail-grayishblue;
+
+//Fonts
+$sans:					"Source Sans Pro", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+$serif:					"PT Serif", Georgia, Times, "Times New Roman", serif;
+$serif-default:			Georgia, Times, "Times New Roman", serif;
+$sans-default:			Helvetica, Arial, Verdana, Tahoma, sans-serif;
+$mono:					Consolas, Monaco, "Courier New", Courier, monospace;
+$script:				"Satisfy", "Brush Script MT", cursive;
+
+//Break points
+$one:					600px;
+$two:					800px;
+
+//Grid
+$width:					780px;
+$col:					60px;
+$gut:					20px;
+
+//Baseline
+$base:					22px;
+$line:					1.65;
+
+//Element
+$indent:				1.5em;
+$rule:					1px solid rgba(58, 63, 65, .1);
+$highlight:				rgba(255,255,255,.14);
+
+// Mixins
+// --------------------------------------------------
+
+//Disable selection
+@mixin no-select {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	   	-ms-user-select: none;
+	   		user-select: none;
+}
+
+//Add transition
+@mixin transition($time: .08s) {
+	-webkit-transition: $time;
+	   -moz-transition: $time;
+	   	 -o-transition: $time;
+	   	 	transition: $time;
+}
+
+//Rotate
+@mixin rotate-transform($rotate: -6deg) {
+	-webkit-transform:rotate($rotate);
+		-ms-transform:rotate($rotate);
+			transform:rotate($rotate);
+}
+
+//Border radius
+@mixin border-radius($radius: 3px) {
+	-webkit-border-radius: $radius;
+		 -moz-border-radius: $radius;
+			  border-radius: $radius;
+}
+
+// Box shadow
+@mixin box-shadow($shadow: 0 1px 4px rgba(0, 0, 0, .36)) {
+	-webkit-box-shadow: $shadow;
+	   -moz-box-shadow: $shadow;
+	   		box-shadow: $shadow;
+}
+
+// Inner box shadow
+@mixin inner-box-shadow($shadow-inner: inset 1px 1px 2px rgba(0, 0, 0, .16)) {
+	-webkit-box-shadow: $shadow-inner;
+	   -moz-box-shadow: $shadow-inner;
+	   		box-shadow: $shadow-inner;
+}
+
+// Image highlight
+@mixin inner-image-shadow($shadow-in: inset 0px 0px 0px 1px $highlight) {
+	-webkit-box-shadow: $shadow-in;
+	   -moz-box-shadow: $shadow-in;
+			box-shadow: $shadow-in;
+}
+
+//Media queries
+@mixin for($media) {
+	@if $media == small-screens {
+		@media screen and (min-width: $one) { @content; }
+	}
+	@else if $media == medium-screens {
+		@media screen and (min-width: $two) { @content; }
+	}
+}
+
+//Rem generator
+$baseline-px: 16px;
+
+@mixin rem($property, $px-values) {
+	// Convert the baseline into rems
+	$baseline-rem: $baseline-px / 1rem;
+	// Print the first line in pixel values
+	#{$property}: $px-values;
+	// If there is only one (numeric) value, return the property/value line for it.
+	@if type-of($px-values) == "number" {
+		#{$property}: $px-values / $baseline-rem; }
+	@else {
+		// Create an empty list that we can dump values into
+		$rem-values: unquote("");
+		@each $value in $px-values {
+			// If the value is zero, return 0
+			@if $value == 0 {
+				$rem-values: append($rem-values, $value); }
+			@else {
+				$rem-values: append($rem-values, $value / $baseline-rem); } }
+		// Return the property and its list of converted values
+		#{$property}: $rem-values; } }
+
+/*---------------------------------------------------------
+ Extends (_preboot.scss)
+-------------------------------------------------------- */
+.clear {
+	zoom: 1;
+	&:before,
+	&:after {
+		display: table;
+		content: "";
+	}
+	&:after {
+		clear: both;
+	}
+}
+.break {
+	word-break: break-word;
+	word-wrap: break-word;
+}
+.box-size {
+	-webkit-box-sizing: border-box;
+	   -moz-box-sizing: border-box;
+	   		box-sizing: border-box;
+}
+.text-shadow {
+	text-shadow: 1px 1px 0 $k;
+}
+.image-highlight {
+	outline: 1px solid $highlight;
+	outline-offset: -1px;
+}
+.small-sans {
+	@include for(small-screens) {
+		@include rem('font-size', 14px);
+	}
+	font-family: $sans;
+	line-height: 1.6;
+	@include rem('font-size', 15px);
+}
+.small-uppercase {
+	@include for(small-screens) {
+		@include rem('font-size', 12px);
+	}
+	color: darken($c,24);
+	font-family: $sans;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	@include rem('font-size', 13px);
+}

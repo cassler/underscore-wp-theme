@@ -1,0 +1,30 @@
+/*---------------------------------------------------------
+ 12. Support (_scaffolding.scss)
+-------------------------------------------------------- */
+.IE9 {
+	.stream-wrapper .post:before {
+	 display: none;
+	}
+	.stream-item,
+	.stream-footer {
+		width: 100%;
+	}
+}
+.IE9,
+.ie10 {
+	.homepage-custom-link {
+		@include rem('padding-left', $base);
+		&:before {
+			display: none;
+		}
+	}
+	.stream-view-link {
+		display: none;
+	}
+	.icons li a {
+		width: 20px;
+		height: 20px;
+		background-size: cover;
+		@include rem('margin-left', $gut/2);
+	}
+}

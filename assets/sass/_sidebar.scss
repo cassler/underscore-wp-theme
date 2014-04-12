@@ -1,0 +1,186 @@
+/*---------------------------------------------------------
+ 9. Sidebar (_sidebar.scss)
+-------------------------------------------------------- */
+.header-sidebar {
+	@include for(medium-screens) {
+		margin-bottom: 0; //reset
+	}
+	@include rem('margin-bottom', $base*2);
+}
+.main-sidebar {
+	@include for(medium-screens) {
+		margin-top: 0; //reset
+	}
+	@include rem('margin-top', $base*2);
+}
+.sidebar {
+	@include for(medium-screens) {
+		float: left;
+		clear: left;
+		width: percentage(($col*2+$gut*2)/$width); //$width
+	}
+	clear: both;
+	text-align: center;
+	.custom-logo {
+		@include rem('margin-bottom', $base*2);
+	}
+	#s {
+		@include for(medium-screens) {
+			background-position: 92% center;
+		}
+		width: 80%;
+		background: rgba(159, 167, 169, .18) url(images/search-icon.svg) 96% center no-repeat;
+		@include rem('padding-right', 30px);
+		@include rem('font-size', 13px);
+		@include border-radius(16px);
+		//placeholder
+		&::-webkit-input-placeholder {
+			color: darken($c,14);
+		}
+		&:-moz-placeholder {
+			color: darken($c,14);
+		}
+		&::-moz-placeholder {
+			color: darken($c,14);
+		}
+		&:-ms-input-placeholder {
+			color: darken($c,14);
+		}
+	}
+}
+/*---------------------------------------------------------
+ Post icons (_sidebar.scss)
+-------------------------------------------------------- */
+.post-icons {
+	@extend .clear;
+	li {
+		@include for(medium-screens) {
+			width: 100%;
+		}
+		display: inline-block;
+		width: 25%;
+		@include rem('margin-bottom', $base/2);
+		&:last-child {
+			margin-bottom: 0; //reset
+		}
+	}
+	a {
+		@include for(medium-screens) {
+			float: none;
+			display: block;
+		}
+		display: inline-block;
+		margin: 0 auto;
+		width: 60px;
+		height: 60px;
+	}
+	//backgrounds
+	.articles,
+	.photos,
+	.audios,
+	.videos,
+	.links,
+	.quotes {
+		background-repeat: no-repeat;
+		background-position: center center;
+		@include for(medium-screens) {
+			&:hover {
+				background-size: 60px;
+			}
+		}
+	}
+	.articles {
+		background-image: url(images/articles-icon.svg);
+	}
+	.links {
+		background-image: url(images/link-icon.svg);
+	}
+	.photos {
+		background-image: url(images/photos-icon.svg);
+	}
+	.audios {
+		background-image: url(images/audio-icon.svg);
+	}
+	.videos {
+		background-image: url(images/video-icon.svg);
+	}
+	.quotes {
+		background-image: url(images/quote-icon.svg);
+	}
+}
+/*---------------------------------------------------------
+ Post icons: scale (_sidebar.scss)
+-------------------------------------------------------- */
+@include for(medium-screens) {
+	.term-post-format-standard,
+	.term-post-format-aside {
+		.post-icons .articles {
+			width: 105px;
+			height: 105px;
+			background-size: 105px;
+		}
+	}
+	.term-post-format-link .post-icons .links {
+		width: 105px;
+		height: 105px;
+		background-size: 105px;
+	}
+	.term-post-format-image,
+	.term-post-format-gallery {
+		.post-icons .photos {
+			width: 105px;
+			height: 105px;
+			background-size: 105px;
+		}
+	}
+	.term-post-format-audio .post-icons .audios {
+		width: 105px;
+		height: 105px;
+		background-size: 105px;
+	}
+	.term-post-format-video .post-icons .videos {
+		width: 105px;
+		height: 105px;
+		background-size: 105px;
+	}
+	.term-post-format-quote .post-icons .quotes {
+		width: 105px;
+		height: 105px;
+		background-size: 105px;
+	}
+}
+/*---------------------------------------------------------
+ Stream icon (_sidebar.scss)
+-------------------------------------------------------- */
+.stream-archive {
+	display: block;
+	margin: 0 auto;
+	width: 41px;
+	height: 36px;
+	background: url(images/stream-icon.svg) center center no-repeat;
+	@include rem('margin-top', $base*2);
+	@include rem('margin-bottom', $base*2);
+	&:hover {
+		background-size: 38px;
+	}
+}
+/*---------------------------------------------------------
+ Archive widget (_sidebar.scss)
+-------------------------------------------------------- */
+.widget_archive {
+	@include rem('margin-bottom', $base*2);
+	.widgettitle {
+		color: lighten($l,8);
+		@include rem('font-size', 13px);
+		@include rem('margin-bottom', $base/4);
+		@extend .text-shadow;
+		@extend .small-uppercase;
+	}
+	> ul {
+		color: $l;
+		@extend .small-sans;
+		li:hover {
+			color: lighten($l,12);
+		}
+	}
+}

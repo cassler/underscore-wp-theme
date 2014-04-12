@@ -1,0 +1,74 @@
+/*---------------------------------------------------------
+ Body (editor-style.css)
+-------------------------------------------------------- */
+body {
+	font-family: "PT Serif", Georgia, Times, "Times New Roman", serif;
+	font-size: 93.75%;
+	line-height: 1.65;
+}
+/*---------------------------------------------------------
+ Code (editor-style.css)
+-------------------------------------------------------- */
+tt,
+kbd,
+pre,
+code,
+samp {
+	font-family: Consolas, Monaco, "Courier New", Courier, monospace;
+	font-weight: 700;
+}
+pre {
+	font-size: 93.75%;
+}
+/*---------------------------------------------------------
+ Elements (editor-style.css)
+-------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+table,
+.note {
+	font-family: "Source Sans Pro", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+}
+h5,
+h6 {
+	text-transform: uppercase;
+}
+mark{
+	font-style: italic;
+}
+blockquote {
+	margin-left: 0;
+	font-style: italic;
+	font-size: 112.5%;
+}
+/*---------------------------------------------------------
+ Lists (editor-style.css)
+-------------------------------------------------------- */
+ul {
+	list-style: disc inside;
+}
+ol {
+	list-style: decimal inside;
+}
+dl dt {
+	font-weight: 700;
+}
+/*---------------------------------------------------------
+ Extras (editor-style.css)
+-------------------------------------------------------- */
+.collections-raised-cap {
+	font-size: 28px;
+	font-weight: 700;
+	color: #db5640;
+	line-height: 1;
+	text-transform: uppercase;
+}
+.collections-note {
+	padding: 11px;
+	font-family: "Source Sans Pro", Helvetica, Arial, Verdana, Tahoma, sans-serif;
+	background-color: #efefef;
+}

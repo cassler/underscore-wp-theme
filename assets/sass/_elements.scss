@@ -1,0 +1,252 @@
+/*---------------------------------------------------------
+ 4. Elements (_elements.scss)
+-------------------------------------------------------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-family: $sans;
+	@extend .break;
+	@include rem('margin-bottom', $base);
+}
+h1 {
+	@include for(medium-screens) {
+		@include rem('font-size', 32px);
+	}
+	line-height: 1.34;
+	@include rem('font-size', 28px);
+	@include rem('word-spacing', 2px);
+}
+h2 {
+	@include for(medium-screens) {
+		@include rem('font-size', 30px);
+	}
+	font-weight: 600;
+	line-height: 1.3;
+	@include rem('font-size', 26px);
+	@include rem('word-spacing', -1px);
+}
+h3 {
+	font-weight: 600;
+	line-height: 1.45;
+	@include rem('font-size', 24px);
+	@include rem('word-spacing', -1px);
+}
+h4 {
+	line-height: 1.6;
+	@include rem('font-size', 22px);
+}
+h5 {
+	line-height: 1.95;
+	text-transform: uppercase;
+	@include rem('font-size', 16px);
+	@include rem('letter-spacing', 1px);
+}
+h6 {
+	font-weight: 600;
+	line-height: 1.95;
+	text-transform: uppercase;
+	@include rem('font-size', 14px);
+	@include rem('letter-spacing', 1px);
+}
+/*---------------------------------------------------------
+ Elements (_elements.scss)
+-------------------------------------------------------- */
+blockquote {
+	clear: both;
+	p {
+		line-height: 1.6;
+		font-style: italic;
+		@include rem('font-size', 20px);
+	}
+	cite {
+		font-style: normal; //reset
+		@include rem('margin-bottom', $base);
+		@include rem('font-size', 18px);
+	}
+}
+q {
+	&:before {
+		content: "\201C";
+	}
+	&:after {
+		content: "\201D";
+	}
+}
+tt,
+kbd,
+pre,
+code,
+samp {
+	font-family: $mono;
+	font-weight: 700;
+	@include rem('word-spacing', -2px);
+}
+pre {
+	display: block;
+	overflow: auto;
+	white-space: pre-wrap;
+	@extend .break;
+	@include rem('margin-bottom', $base);
+}
+mark{
+	font-style: italic;
+	@include rem('padding', 3px);
+}
+abbr,
+acronym,
+dfn {
+	cursor: help;
+	border-bottom: $rule;
+}
+details {
+	summary {
+		font-weight: 700;
+		@include rem('margin-bottom', $base);
+	}
+	:focus {
+		outline: none;
+	}
+}
+ins {
+	text-decoration: none;
+	&:before {
+		content: "\005B";
+		position: relative;
+		@include rem('right', 1px);
+	}
+	&:after {
+		content: "\005D";
+		position: relative;
+		@include rem('left', 1px);
+	}
+}
+small {
+	font-size: .75em;
+}
+big {
+	font-size: 1.25em;
+}
+address {
+	font-style: normal;
+	font-weight: 700;
+}
+hr {
+	display: block;
+	height: 1px;
+	padding: 0;
+	border: 0; //reset
+	border-top: $rule;
+	@include rem('margin', $base*2 0);
+	@extend .box-size;
+}
+/*---------------------------------------------------------
+ Lists (_elements.scss)
+-------------------------------------------------------- */
+.entry-content {
+	ul {
+		list-style: disc inside;
+	}
+	ol {
+		list-style: decimal inside;
+	}
+	li {
+		line-height: 1.9;
+	}
+	li > ul,
+	li > ol {
+		margin-bottom: 0;
+		margin-left: $indent;
+	}
+}
+/*---------------------------------------------------------
+ Definition lists (_elements.scss)
+-------------------------------------------------------- */
+dl dt {
+	margin-bottom: 0;
+	font-weight: 700;
+}
+/*---------------------------------------------------------
+ Tables (_elements.scss)
+-------------------------------------------------------- */
+table {
+	width: 100%;
+	text-align: center;
+	@extend .break;
+	@extend .small-sans;
+	color: inherit;
+	caption {
+		@include rem('margin-bottom', $base);
+	}
+	th,
+	td {
+		@include rem('padding', $base 0);
+	}
+	td {
+		border-top: $rule;
+		&[valign="top"] {
+			vertical-align: top;
+		}
+		&[valign="bottom"] {
+			vertical-align: bottom;
+		}
+	}
+}
+/*---------------------------------------------------------
+ Galleries (_elements.scss)
+-------------------------------------------------------- */
+.gallery {
+	margin-bottom: $base !important;
+	.gallery-icon {
+		img {
+			border: 0 !important;
+		}
+	}
+	.gallery-item {
+		width: 30% !important;
+		padding-left: 1.5%;
+		padding-right: 1.5%;
+	}
+	.gallery-caption {
+		margin-bottom: 0;
+	}
+	dl,
+	dt {
+		margin-bottom: 0;
+	}
+}
+/*---------------------------------------------------------
+ Extras (_elements.scss)
+-------------------------------------------------------- */
+.collections-raised-cap {
+	@include for(small-screens) {
+		@include rem('font-size', 30px);
+	}
+	color: $d;
+	font-weight: 700;
+	line-height: 1;
+	text-transform: uppercase;
+	-webkit-font-smoothing: antialiased;
+	@include rem('margin-left', -1px);
+	@include rem('margin-right', 1px);
+	@include rem('font-size', 28px);
+}
+.collections-note {
+	@include for(small-screens) {
+		@include rem('padding', $base);
+	}
+	clear: both;
+	color: darken($c,16);
+	background-color: $b;
+	border: $rule;
+	@include rem('padding', $base/2);
+	@include rem('margin-bottom', $base);
+	@include border-radius;
+	@extend .small-sans;
+	p {
+		margin-bottom: 0;
+	}
+}

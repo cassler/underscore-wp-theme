@@ -1,0 +1,52 @@
+/*---------------------------------------------------------
+ 11. Forms (_forms.scss)
+-------------------------------------------------------- */
+textarea,
+select,
+input {
+	width: 100%;
+	border: 0; //reset
+	background-color: rgba(159, 167, 169, .28);
+	@include rem('padding', 6px 10px);
+	@include inner-box-shadow;
+	@extend .box-size;
+	@extend .small-sans;
+	line-height: 1.3;
+	color: $c;
+	&:focus {
+		outline: none; //reset
+	}
+}
+#s {
+	@include border-radius;
+}
+textarea {
+	resize: vertical;
+}
+select {
+	outline: none; //reset
+	background-color: $b;
+}
+/*---------------------------------------------------------
+ Buttons (_forms.scss)
+-------------------------------------------------------- */
+button,
+input[type="reset"],
+input[type="submit"],
+input[type="button"],
+#infinite-handle span,
+.stream-view-link,
+.cspa-load-more {
+	width: auto;
+	background-color: $k;
+	border: 0;
+	line-height: 1; //reset
+	text-align: center;
+	text-rendering: optimizeLegibility;
+	@include rem('padding', 13px 26px);
+	@include rem('margin-bottom', $base);
+	@include inner-box-shadow(none); //reset
+	@include border-radius(26px);
+	@include no-select;
+	@extend .small-uppercase;
+}
